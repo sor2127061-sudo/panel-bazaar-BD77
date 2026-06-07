@@ -1,8 +1,6 @@
 /**
- * @license
- * SPDX-License-Identifier: Apache-2.0
+ * @license SPDX-License-Identifier: Apache-2.0
  */
-
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
@@ -32,30 +30,23 @@ export default function App() {
       <AuthProvider>
         <BrowserRouter>
           <LumenShell>
-            <div
-              className="min-h-screen flex flex-col font-sans antialiased text-zinc-100 select-none"
-              style={{ background: 'var(--bg)' }}
-            >
-              <Navbar />
-              <div className="flex-1 pb-16 md:pb-0">
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/topup/:id" element={<ProductDetail />} />
-                  <Route path="/bundles" element={<Bundles />} />
-                  <Route path="/add-fund" element={<ProtectedRoute><AddFund /></ProtectedRoute>} />
-                  <Route path="/topup-success" element={<ProtectedRoute><TopupSuccess /></ProtectedRoute>} />
-                  <Route path="/orders" element={<ProtectedRoute><Orders /></ProtectedRoute>} />
-                  <Route path="/codes" element={<ProtectedRoute><MyKeys /></ProtectedRoute>} />
-                  <Route path="/account" element={<ProtectedRoute><Account /></ProtectedRoute>} />
-                  <Route path="/stock-request" element={<ProtectedRoute><StockRequest /></ProtectedRoute>} />
-                  <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
-                  <Route path="*" element={<Navigate to="/" replace />} />
-                </Routes>
-              </div>
-              <BottomNav />
-            </div>
+            <Navbar />
+            <Routes>
+              <Route path="/"              element={<Home />} />
+              <Route path="/login"         element={<Login />} />
+              <Route path="/register"      element={<Register />} />
+              <Route path="/topup/:id"     element={<ProductDetail />} />
+              <Route path="/bundles"       element={<Bundles />} />
+              <Route path="/add-fund"      element={<ProtectedRoute><AddFund /></ProtectedRoute>} />
+              <Route path="/topup-success" element={<ProtectedRoute><TopupSuccess /></ProtectedRoute>} />
+              <Route path="/orders"        element={<ProtectedRoute><Orders /></ProtectedRoute>} />
+              <Route path="/codes"         element={<ProtectedRoute><MyKeys /></ProtectedRoute>} />
+              <Route path="/account"       element={<ProtectedRoute><Account /></ProtectedRoute>} />
+              <Route path="/stock-request" element={<ProtectedRoute><StockRequest /></ProtectedRoute>} />
+              <Route path="/admin"         element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+              <Route path="*"             element={<Navigate to="/" replace />} />
+            </Routes>
+            <BottomNav />
           </LumenShell>
         </BrowserRouter>
       </AuthProvider>
